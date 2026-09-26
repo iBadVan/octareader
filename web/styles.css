@@ -464,3 +464,41 @@ footer a { color:#b6bdc8; text-decoration:none; }
   .row > div:last-child { display:none; }
   h1 { font-size:44px; }
 }
+
+
+.analyze-btn {
+  width:100%;
+  margin-top:10px;
+  min-height:44px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:var(--accent);
+  color:#0b0d10;
+  font-weight:850;
+  transition:.18s ease;
+}
+.analyze-btn:hover:not(:disabled) { transform:translateY(-1px); }
+.analyze-btn:disabled {
+  cursor:not-allowed;
+  opacity:.38;
+}
+.analyze-btn.loading {
+  background:#dfffae;
+}
+.analyze-icon {
+  display:inline-grid;
+  place-items:center;
+  font-size:16px;
+}
+.ocr-note {
+  margin-top:7px;
+  color:#77808d;
+  font-size:9px;
+  line-height:1.4;
+}
+.ocr-note.ok { color:#a9dd68; }
+.ocr-note.warn { color:#f0c96d; }
+.ocr-note.error { color:#ff8995; }
