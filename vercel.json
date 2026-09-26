@@ -1,7 +1,8 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/web/index.html" },
-    { "source": "/demo", "destination": "/web/index.html" }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "npm run build:web",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "cleanUrls": true
 }
