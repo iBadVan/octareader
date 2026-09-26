@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0d10" />
+  <title>OctaReader Demo</title>
+  <meta name="description" content="Demo interactiva de OctaReader: reconocimiento y comparación de octógonos nutricionales." />
+  <link rel="stylesheet" href="/web/styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">OR</div>
+      <div>
+        <strong>OctaReader</strong>
+        <span>Vision-based warning reader</span>
+      </div>
+    </div>
+    <div class="status-pill">
+      <span class="dot"></span>
+      Demo UI
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">RESEARCH PROTOTYPE · PERU</span>
+        <h1>Convierte octógonos nutricionales en un perfil comparable.</h1>
+        <p>
+          Carga dos productos, simula las detecciones del detector YOLO11n y observa
+          cómo OctaReader transforma las advertencias en perfiles binarios para
+          interpretación y comparación.
+        </p>
+        <div class="hero-actions">
+          <button class="primary" id="loadExample">Cargar ejemplo</button>
+          <button class="ghost" id="resetAll">Reiniciar</button>
+        </div>
+      </div>
+
+      <div class="pipeline-card">
+        <div class="pipeline-step active"><span>01</span><b>Imagen</b></div>
+        <div class="arrow">→</div>
+        <div class="pipeline-step"><span>02</span><b>YOLO11n</b></div>
+        <div class="arrow">→</div>
+        <div class="pipeline-step"><span>03</span><b>Perfil</b></div>
+        <div class="arrow">→</div>
+        <div class="pipeline-step"><span>04</span><b>Comparación</b></div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <strong>Modo demostración:</strong>
+      el detector entrenado todavía no está conectado a esta interfaz. En esta versión,
+      las detecciones pueden seleccionarse manualmente o cargarse con el ejemplo para
+      demostrar el flujo completo sin presentar inferencia simulada como resultado real.
+    </section>
+
+    <section class="scanner-grid">
+      <article class="product-card" data-product="a">
+        <div class="card-head">
+          <div>
+            <span class="kicker">PRODUCTO A</span>
+            <h2>Escaneo 01</h2>
+          </div>
+          <span class="scan-state" id="stateA">Sin imagen</span>
+        </div>
+
+        <label class="dropzone" id="dropA">
+          <input type="file" id="fileA" accept="image/*" hidden />
+          <img id="previewA" alt="Vista previa producto A" />
+          <div class="drop-content" id="dropContentA">
+            <div class="upload-icon">＋</div>
+            <b>Cargar fotografía</b>
+            <span>JPG, PNG o WEBP</span>
+          </div>
+          <div class="scanline"></div>
+        </label>
+
+        <div class="section-label">Advertencias detectadas</div>
+        <div class="warnings" id="warningsA"></div>
+
+        <div class="profile-box">
+          <div class="profile-title">
+            <span>Perfil machine-readable</span>
+            <button class="mini" data-copy="a">Copiar JSON</button>
+          </div>
+          <pre id="profileA"></pre>
+        </div>
+      </article>
+
+      <article class="product-card" data-product="b">
+        <div class="card-head">
+          <div>
+            <span class="kicker">PRODUCTO B</span>
+            <h2>Escaneo 02</h2>
+          </div>
+          <span class="scan-state" id="stateB">Sin imagen</span>
+        </div>
+
+        <label class="dropzone" id="dropB">
+          <input type="file" id="fileB" accept="image/*" hidden />
+          <img id="previewB" alt="Vista previa producto B" />
+          <div class="drop-content" id="dropContentB">
+            <div class="upload-icon">＋</div>
+            <b>Cargar fotografía</b>
+            <span>JPG, PNG o WEBP</span>
+          </div>
+          <div class="scanline"></div>
+        </label>
+
+        <div class="section-label">Advertencias detectadas</div>
+        <div class="warnings" id="warningsB"></div>
+
+        <div class="profile-box">
+          <div class="profile-title">
+            <span>Perfil machine-readable</span>
+            <button class="mini" data-copy="b">Copiar JSON</button>
+          </div>
+          <pre id="profileB"></pre>
+        </div>
+      </article>
+    </section>
+
+    <section class="comparison">
+      <div class="comparison-head">
+        <div>
+          <span class="eyebrow">PRODUCT COMPARISON</span>
+          <h2>Comparación de perfiles</h2>
+        </div>
+        <div class="legend">
+          <span><i class="yes"></i> Presente</span>
+          <span><i class="no"></i> Ausente</span>
+        </div>
+      </div>
+
+      <div class="comparison-table" id="comparisonTable"></div>
+
+      <div class="interpretation" id="interpretation">
+        Selecciona las advertencias de ambos productos para comparar sus perfiles.
+      </div>
+    </section>
+
+    <section class="research">
+      <div>
+        <span class="eyebrow">EVALUATION PLAN</span>
+        <h2>Protocolo técnico</h2>
+        <p>La evaluación final se realizará con 10 productos físicos y 6 condiciones de adquisición por producto.</p>
+      </div>
+      <div class="metrics">
+        <div><strong>10</strong><span>productos</span></div>
+        <div><strong>6</strong><span>condiciones</span></div>
+        <div><strong>60</strong><span>imágenes reales</span></div>
+        <div><strong>4</strong><span>clases</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>OctaReader · Research prototype</span>
+    <a href="https://github.com/iBadVan/octareader" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </footer>
+
+  <div class="toast" id="toast">Copiado</div>
+  <script src="/web/app.js"></script>
+</body>
+</html>
