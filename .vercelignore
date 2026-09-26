@@ -1,0 +1,11 @@
+src/
+tests/
+data/
+docs/
+results/
+configs/
+notebooks/
+*.pt
+*.onnx
+*.engine
+*.ncnn
