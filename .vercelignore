@@ -5,6 +5,8 @@ docs/
 results/
 configs/
 notebooks/
+pyproject.toml
+requirements.txt
 *.pt
 *.onnx
 *.engine
