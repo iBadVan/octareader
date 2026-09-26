@@ -53,10 +53,10 @@
     </section>
 
     <section class="notice">
-      <strong>Modo demostración:</strong>
-      el detector entrenado todavía no está conectado a esta interfaz. En esta versión,
-      las detecciones pueden seleccionarse manualmente o cargarse con el ejemplo para
-      demostrar el flujo completo sin presentar inferencia simulada como resultado real.
+      <strong>Prototipo de reconocimiento:</strong>
+      mientras se entrena YOLO11n, la web puede analizar automáticamente el texto visible
+      de la fotografía mediante OCR en el navegador. El resultado puede corregirse
+      manualmente; no se reporta como desempeño del detector YOLO del estudio.
     </section>
 
     <section class="scanner-grid">
@@ -79,6 +79,11 @@
           </div>
           <div class="scanline"></div>
         </label>
+        <button class="analyze-btn" id="analyzeA" disabled>
+          <span class="analyze-icon">◎</span>
+          Analizar imagen
+        </button>
+        <div class="ocr-note" id="ocrNoteA">Detector temporal OCR · YOLO11n pendiente de entrenamiento</div>
 
         <div class="section-label">Advertencias detectadas</div>
         <div class="warnings" id="warningsA"></div>
@@ -111,6 +116,11 @@
           </div>
           <div class="scanline"></div>
         </label>
+        <button class="analyze-btn" id="analyzeB" disabled>
+          <span class="analyze-icon">◎</span>
+          Analizar imagen
+        </button>
+        <div class="ocr-note" id="ocrNoteB">Detector temporal OCR · YOLO11n pendiente de entrenamiento</div>
 
         <div class="section-label">Advertencias detectadas</div>
         <div class="warnings" id="warningsB"></div>
@@ -165,6 +175,7 @@
   </footer>
 
   <div class="toast" id="toast">Copiado</div>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
   <script src="/app.js"></script>
 </body>
 </html>
