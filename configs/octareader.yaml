@@ -1,0 +1,10 @@
+path: ../data
+train: development/images/train
+val: development/images/val
+test: evaluation/images
+
+names:
+  0: alto_azucar
+  1: alto_sodio
+  2: alto_grasas_saturadas
+  3: contiene_grasas_trans
