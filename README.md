@@ -84,3 +84,22 @@ tests/                 unit tests
 ## Research use
 
 This repository supports the OctaReader research project. It is a work in progress and does not provide medical or nutritional advice.
+
+
+## Web demo
+
+A Vercel-ready interactive demo is included under `web/`.
+
+The demo lets users:
+- upload two product photos,
+- select/demo detected warning classes,
+- inspect the machine-readable warning profile,
+- compare Product A vs Product B,
+- visualize the planned 10 × 6 evaluation design.
+
+The interface is intentionally labeled as **Demo UI** because the trained YOLO11n detector has not yet been connected to the frontend.
+
+### Deploy on Vercel
+
+Import this GitHub repository into Vercel and deploy from the repository root. The included `vercel.json` routes `/` and `/demo` to the demo interface.
+
